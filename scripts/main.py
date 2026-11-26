@@ -126,5 +126,5 @@ def lambda_handler(event, context):
 
     return {
         'statusCode': 200,
-        'body': json.dumps('Dados enviados ao Kinesis com sucesso')
+        'body': json.dumps('Dados enviados ao S3 com sucesso')
     }

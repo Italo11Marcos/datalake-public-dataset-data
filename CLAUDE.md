@@ -53,7 +53,6 @@ Os dois campos são obrigatórios (não há valor padrão).
 
 ## Pontos de atenção conhecidos
 
-- `main.py` retorna a mensagem "enviados ao Kinesis", mas o destino é S3 — corrigir.
 - Os scripts por contexto usam `AWS_REGION` (padrão `us-east-1`) e `parts[-2]` para o ano; o `main.py` usa `REGION_AWS` (padrão `us-east-2`) e recebe os anos em `years`. Manter o `main.py` como referência.
 
 ## Comandos úteis (PowerShell)
