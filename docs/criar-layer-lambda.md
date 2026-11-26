@@ -8,7 +8,7 @@ Este guia ensina a empacotar dependências (ex.: `requests`) em uma **Lambda Lay
 
 - AWS CLI configurado (`aws configure`) com permissão para `lambda:PublishLayerVersion` e `lambda:UpdateFunctionConfiguration`.
 - Python local na **mesma versão minor** do runtime da Lambda (ex.: Python 3.12). Confira o runtime da função no console.
-- Região da layer **igual** à da função (neste projeto, `us-east-1`).
+- Região da layer **igual** à da função (neste projeto, `us-east-2`).
 
 ## 2. Estrutura obrigatória
 
@@ -87,7 +87,7 @@ aws lambda publish-layer-version `
   --zip-file fileb://build/requests-layer.zip `
   --compatible-runtimes python3.12 `
   --compatible-architectures x86_64 `
-  --region us-east-1
+  --region us-east-2
 ```
 
 **ZIP maior, via S3:**
@@ -98,13 +98,13 @@ aws lambda publish-layer-version `
   --layer-name tse-requests `
   --content S3Bucket=tse-datalake-eleicoes,S3Key=layers/requests-layer.zip `
   --compatible-runtimes python3.12 `
-  --region us-east-1
+  --region us-east-2
 ```
 
 A saída traz o `LayerVersionArn`, no formato:
 
 ```
-arn:aws:lambda:us-east-1:<ACCOUNT_ID>:layer:tse-requests:1
+arn:aws:lambda:us-east-2:<ACCOUNT_ID>:layer:tse-requests:1
 ```
 
 ## 7. Anexar à função Lambda
@@ -112,8 +112,8 @@ arn:aws:lambda:us-east-1:<ACCOUNT_ID>:layer:tse-requests:1
 ```powershell
 aws lambda update-function-configuration `
   --function-name <NOME_DA_FUNCAO> `
-  --layers arn:aws:lambda:us-east-1:<ACCOUNT_ID>:layer:tse-requests:1 `
-  --region us-east-1
+  --layers arn:aws:lambda:us-east-2:<ACCOUNT_ID>:layer:tse-requests:1 `
+  --region us-east-2
 ```
 
 Atenção: `--layers` **substitui** a lista inteira. Se a função já tem outras layers, inclua todas os ARNs separados por espaço.
