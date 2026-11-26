@@ -1,0 +1,45 @@
+# Ambientes virtuais
+env-tse/
+.venv/
+venv/
+
+# Cache e artefatos do Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Build e pacotes da Lambda (layers, ZIPs de deploy)
+build/
+dist/
+*.zip
+
+# Dados do TSE (ficam no S3)
+*.csv
+*.parquet
+
+# Credenciais e segredos
+.env
+.env.*
+!.env.example
+.aws/
+credentials.json
+*.pem
+*.key
+
+# Configurações locais do Claude Code (as skills são versionadas)
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Logs e temporários
+*.log
+*.tmp
+
+# Editores e sistema operacional
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Meus arquivos
+notes.md
